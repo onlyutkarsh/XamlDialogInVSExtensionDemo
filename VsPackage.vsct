@@ -56,7 +56,7 @@
         <Parent guid="guidVsPackageCmdSet" id="MyMenuGroup" />
         <Icon guid="guidImages" id="bmpPic1" />
         <Strings>
-          <ButtonText>Invoke OpenDialogCommand</ButtonText>
+          <ButtonText>Open XAML Dialog</ButtonText>
         </Strings>
       </Button>
     </Buttons>

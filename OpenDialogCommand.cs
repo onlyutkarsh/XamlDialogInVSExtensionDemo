@@ -93,22 +93,10 @@ namespace XamlDialogInVSExtensionDemo
         /// <param name="e">Event args.</param>
         private void MenuItemCallback(object sender, EventArgs e)
         {
-            IVsUIShell uiShell = (IVsUIShell)ServiceProvider.GetService(typeof(SVsUIShell));
-            XamlDialog myDialog = new XamlDialog();
-            //get the owner of this dialog
-            IntPtr hwnd;
-            uiShell.GetDialogOwnerHwnd(out hwnd);
-            //myDialog.WindowStartupLocation = System.Windows.WindowStartupLocation.CenterOwner;
-            uiShell.EnableModeless(0);
-            try
-            {
-                WindowHelper.ShowModal(myDialog, hwnd);
-            }
-            finally
-            {
-                // This will take place after the window is closed.
-                uiShell.EnableModeless(1);
-            }
+            var xamlDialog = new XamlDialog("Microsoft.VisualStudio.PlatformUI.DialogWindow");
+            xamlDialog.HasMinimizeButton = false;
+            xamlDialog.HasMaximizeButton = false;
+            xamlDialog.ShowModal();
         }
     }
 }
